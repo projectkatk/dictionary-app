@@ -19,7 +19,7 @@ export default function Dictionary () {
     return (
         <div>
             <form 
-                className="d-flex flex-column align-items-center p-4 flex-md-row Form"
+                className="d-flex flex-column align-items-center p-4 flex-sm-row Form"
                 onSubmit={search}
             >
                 <input 
