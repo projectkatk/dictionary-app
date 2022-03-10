@@ -1,0 +1,33 @@
+.Meaning:nth-child(2),
+.Meaning:nth-child(4) {
+    background: #afd2e93b;
+}
+
+
+.Meaning .phonetic {
+    font-style:italic;
+}
+
+.Meaning .wordType {
+    min-width: 100px;
+    width: 150px;
+}
+
+.Meaning .definition {
+    list-style: none;
+}
+
+.Meaning .example {
+    font-style:italic;
+}
+
+
+@media (min-width: 768px) {
+    .Meaning:nth-child(3) {
+        background: #afd2e93b;
+    }
+
+    .Meaning:nth-child(4) {
+        background: transparent;
+    }
+}
