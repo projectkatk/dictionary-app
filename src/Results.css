@@ -1,0 +1,28 @@
+.Results .meaning-section {
+    visibility: hidden;
+}
+
+
+.Results .meaning-section .wordType {
+    width: 100px;
+}
+
+.Results .second-meaning {
+    background: #f0f7fc;
+}
+
+
+.Results .phonetic {
+    font-style:italic;
+}
+
+.Results .wordType {
+    min-width: 100px;
+    width: 150px;
+}
+
+@media (min-width: 576px) {
+    .Results .meaning-section .inner-border {
+        border: 5px solid #b8b8b8;
+    }
+}

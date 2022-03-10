@@ -1,23 +1,9 @@
-.Form {
+.Dictionary .Form {
     max-width: 700px;
     margin: auto;
 }
 
-.Form .searchBtn {
+.Dictionary .Form .searchBtn {
     background: #73a5c7;    
 }
 
-.meaning-section {
-    visibility: hidden;
-}
-
-
-.meaning-section .wordType {
-    width: 100px;
-}
-
-@media (min-width: 576px) {
-    .meaning-section .inner-border {
-        border: 5px solid #b8b8b8;
-    }
-}
