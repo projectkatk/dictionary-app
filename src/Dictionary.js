@@ -24,7 +24,8 @@ export default function Dictionary () {
         const data = response.data[0];
         setWordData({
             ready: true,
-            phonetic: data.phonetics[0].text,
+            rawData: data,
+            phonetic: data.phonetics.length > 0 ? (!data.phonetics[0].text ? data.phonetics[1].text : data.phonetics[0].text) : "",
             type1: data.meanings[0].partOfSpeech,
             definition1: data.meanings[0].definitions[0].definition,            
             synonym1Array: data.meanings[0].synonyms,
@@ -32,12 +33,12 @@ export default function Dictionary () {
             meaning2: data.meanings[1],
             meaning3: data.meanings[2]
         })
+        setLoaded(true);         
     }
 
     function search(e) {
         e.preventDefault();
-        load(); 
-        setTimeout(setLoaded(true), 500);      
+        load();
     }
 
     function load() {
@@ -48,27 +49,27 @@ export default function Dictionary () {
         }
     }    
      
-        return (
-            <div className="Dictionary">
-                <form 
-                    className="d-flex flex-column align-items-center p-4 flex-sm-row Form"
-                    onSubmit={search}
-                >
-                    <input 
-                        type="search" 
-                        className="form-control m-2 border-0 shadow" 
-                        placeholder="Search word" 
-                        autoFocus={true} 
-                        onChange={handleKeywordChange}
-                    />
-                    <button className="btn text-dark form-control m-2 searchBtn shadow fw-bold text-dark">Search</button>                
-                </form>
-                { loaded && 
-                    <Results 
-                    keyword={keyword}
-                    data={wordData}                    
-                    />    
-                }       
-                </div>
-        )    
+    return (
+        <div className="Dictionary">
+            <form 
+                className="d-flex flex-column align-items-center p-4 flex-sm-row Form"
+                onSubmit={search}
+            >
+                <input 
+                    type="search" 
+                    className="form-control m-2 border-0 shadow" 
+                    placeholder="Search word" 
+                    autoFocus={true} 
+                    onChange={handleKeywordChange}
+                />
+                <button className="btn text-dark form-control m-2 searchBtn shadow fw-bold text-dark">Search</button>                
+            </form>
+            { loaded && 
+                <Results 
+                keyword={keyword}
+                data={wordData}                    
+                />    
+            }       
+            </div>
+    )    
 }

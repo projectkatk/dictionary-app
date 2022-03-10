@@ -4,7 +4,7 @@
 
 
 .Results .meaning-section .wordType {
-    width: 100px;
+    width: 70px;
 }
 
 .Results .second-meaning {
@@ -18,6 +18,10 @@
 .Results .wordType {
     min-width: 100px;
     width: 150px;
+}
+
+.Results .definition {
+    list-style: none;
 }
 
 @media (min-width: 576px) {
