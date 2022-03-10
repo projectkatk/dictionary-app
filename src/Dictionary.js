@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Dictionary.css";
 import Results from "./Results"
 import axios from "axios"
@@ -9,6 +9,10 @@ export default function Dictionary () {
     const [keyword, setKeyword] = useState("");
     const [wordData, setWordData] = useState({ready: false})
     const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        setLoaded(false)
+    },[])
 
     function handleKeywordChange(e) {
         setKeyword(e.target.value);
@@ -24,14 +28,15 @@ export default function Dictionary () {
             definition1: data.meanings[0].definitions[0].definition,            
             synonym1Array: data.meanings[0].synonyms,
             antonym1Array: data.meanings[0].antonyms,
+            meaning2: data.meanings[1],
+            meaning3: data.meanings[2]
         })
-        setLoaded(true);
     }
 
     function search(e) {
         e.preventDefault();
-        load();
-       
+        load();       
+        setLoaded(true);
     }
 
     function load() {
@@ -40,15 +45,7 @@ export default function Dictionary () {
                 .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`)
                 .then(handleResponse)            
         }
-    }
-
-    function actionResult() {
-        loaded && 
-            <Results 
-             keyword={keyword}
-             data={wordData}
-            />    
-    }      
+    }    
      
         return (
             <div className="Dictionary">
@@ -65,7 +62,12 @@ export default function Dictionary () {
                     />
                     <button className="btn text-dark form-control m-2 searchBtn shadow fw-bold text-dark">Search</button>                
                 </form>
-                {actionResult()}       
-            </div>
+                { loaded && 
+                    <Results 
+                    keyword={keyword}
+                    data={wordData}                    
+                    />    
+                }       
+                </div>
         )    
 }

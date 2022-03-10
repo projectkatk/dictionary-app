@@ -8,9 +8,8 @@
 }
 
 .Results .second-meaning {
-    background: #f0f7fc;
+    border-top: 0.2px solid gray;
 }
-
 
 .Results .phonetic {
     font-style:italic;
@@ -24,5 +23,13 @@
 @media (min-width: 576px) {
     .Results .meaning-section .inner-border {
         border: 5px solid #b8b8b8;
+    }
+    
+}
+
+@media (min-width: 768px) {
+    .Results .second-meaning {
+        background: #e2edf5;
+        border: none;
     }
 }
