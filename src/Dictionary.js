@@ -16,6 +16,7 @@ export default function Dictionary () {
 
     function handleKeywordChange(e) {
         setKeyword(e.target.value);
+        setLoaded(false)
     }
 
     function handleResponse(response) {
