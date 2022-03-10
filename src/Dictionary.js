@@ -58,7 +58,7 @@ export default function Dictionary () {
                 <input 
                     type="search" 
                     className="form-control m-2 border-0 shadow" 
-                    placeholder="Search word" 
+                    placeholder="Search a word -  e.g. table, kitchen" 
                     autoFocus={true} 
                     onChange={handleKeywordChange}
                 />
