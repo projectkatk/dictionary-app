@@ -10,7 +10,10 @@ function App() {
       <main>
         <Dictionary />
       </main>
-      <footer className="footer-links text-center">Coded by Kate Kim.</footer>     
+      <footer className="footer-links text-center mt-3">
+        <small>Coded by Kate Kim. </small> 
+        <small>Go to <a href="https://github.com/projectkatk/dictionary-app" target="_blank" rel="noreferrer">Github</a></small>
+      </footer>     
     </div>
   );
 }

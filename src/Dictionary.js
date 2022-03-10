@@ -36,8 +36,8 @@ export default function Dictionary () {
 
     function search(e) {
         e.preventDefault();
-        load();       
-        setLoaded(true);
+        load(); 
+        setTimeout(setLoaded(true), 500);      
     }
 
     function load() {
