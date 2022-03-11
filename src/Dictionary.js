@@ -1,43 +1,62 @@
 import { useState, useEffect } from "react";
 import "./Dictionary.css";
 import Results from "./Results"
+import Photos from "./Photos"
 import axios from "axios"
 
 
 export default function Dictionary () {
     const [keyword, setKeyword] = useState("");
-    const [wordData, setWordData] = useState({ready: false})
+    const [wordData, setWordData] = useState({ready: false});
     const [loaded, setLoaded] = useState(false);
+    const [photos, setPhotos] = useState(null);
 
     useEffect(() => {
         setLoaded(false)
-    },[])
+    },[]);
 
     function handleKeywordChange(e) {
         setKeyword(e.target.value);
         setLoaded(false)
     }
 
-    function handleResponse(response) {
+    function handleDictResponse(response) {
         const data = response.data[0];
-        console.log(data)
-
         setWordData(data);        
         setLoaded(true);         
+    }
+
+    function handlePexelResponse(response) {
+        console.log(response)
+        setPhotos(response.data.hits)
+
     }
 
     function search(e) {
         e.preventDefault();
         load();
-    }
+        loadPhotos();        
+    }    
 
     function load() {
         if(keyword) {
             axios
                 .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`)
-                .then(handleResponse)            
+                .then(handleDictResponse)            
         }
+        
     }    
+
+    function loadPhotos() {
+        if(keyword) {
+            const photoApi = '26093005-0fe8d48f6f005795a5f321700';
+            let pixaBayUrl = `https://pixabay.com/api/?key=${photoApi}&q=${keyword}&image_type=photo&pretty=true&per_page=9&min_height=80`;
+            
+            axios
+                .get(pixaBayUrl)
+                .then(handlePexelResponse);      
+        }          
+    }
      
     return (
         <div className="Dictionary">
@@ -52,15 +71,20 @@ export default function Dictionary () {
                     autoFocus={true} 
                     onChange={handleKeywordChange}
                 />
-                <button className="btn text-dark form-control m-2 searchBtn shadow fw-bold text-dark">Search</button>                
+                <button className="btn text-dark form-control m-2 searchBtn shadow fw-bold text-white">Search</button>                
             </form>
             { 
                 loaded && 
-                <Results 
-                keyword={keyword}
-                data={wordData}
-                key={1}                    
-                />    
+                <div>
+                    <Results 
+                    keyword={keyword}
+                    data={wordData}
+                    key={1}                    
+                    />
+                    <Photos 
+                        photos={photos}
+                    />    
+                </div>
             }       
         </div>
     )    

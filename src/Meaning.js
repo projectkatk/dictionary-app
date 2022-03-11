@@ -10,10 +10,11 @@ export default function Meaning(props) {
             <div className="d-inline-block mb-3">
             { props.data.phonetics.length > 0 && 
                 props.data.phonetics.map((phonetic, index) => (
-                <Phonetic 
-                phonetics={phonetic}
-                key={index}
-                />
+                    <Phonetic 
+                    phonetics={phonetic}
+                    key={index}
+                    id={index}
+                    />
                 ))
             }
             </div>

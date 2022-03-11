@@ -3,7 +3,6 @@ import "./Phonetic.css";
 
 export default function Phonetic(props) {
     function playSound() {       
-        console.log("clicked")
         let audio = new Audio(props.phonetics.audio);
         const audioPlay = () => {
             audio.play();
@@ -12,7 +11,7 @@ export default function Phonetic(props) {
     }
    
     return (
-        <span className="px-2 Phonetic">               
+        <span className="px-2 Phonetic" key={props.id}>               
                 {
                     (props.phonetics.audio && props.phonetics.text) ? 
                     ( 

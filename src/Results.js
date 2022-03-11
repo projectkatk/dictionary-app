@@ -2,6 +2,7 @@ import Meaning from "./Meaning"
 
 
 export default function Results(props) {       
+    console.log(props.data)
     if(props.keyword) {
             return (
                 <section className="Results bg-white meaning-section shadow"> 
