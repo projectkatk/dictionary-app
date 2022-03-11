@@ -20,19 +20,8 @@ export default function Dictionary () {
     }
 
     function handleResponse(response) {
-        console.log(response.data[0])
         const data = response.data[0];
-        setWordData(data);
-            // ready: true,
-            // rawData: data,
-            // phonetic: data.phonetics.length > 0 ? (!data.phonetics[0].text ? data.phonetics[1].text : data.phonetics[0].text) : "",
-            // type1: data.meanings[0].partOfSpeech,
-            // definition1: data.meanings[0].definitions[0].definition,            
-            // synonym1Array: data.meanings[0].synonyms,
-            // antonym1Array: data.meanings[0].antonyms,
-            // meaning2: data.meanings[1],
-            // meaning3: data.meanings[2]
-        
+        setWordData(data);        
         setLoaded(true);         
     }
 
@@ -64,7 +53,8 @@ export default function Dictionary () {
                 />
                 <button className="btn text-dark form-control m-2 searchBtn shadow fw-bold text-dark">Search</button>                
             </form>
-            { loaded && 
+            { 
+                loaded && 
                 <Results 
                 keyword={keyword}
                 data={wordData}                    
