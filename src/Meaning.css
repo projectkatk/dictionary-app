@@ -22,7 +22,14 @@
 }
 
 .Meaning .synonym {
-    color: #1e6899e5;
+    color:#497da0f5;
+    font-size: 0.8rem;
+}
+
+.Meaning .badge {
+    background: #497da0a6;
+    margin-right: 10px;
+    align-content: center;
 }
 
 

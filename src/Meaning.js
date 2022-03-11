@@ -17,13 +17,14 @@ export default function Meaning(props) {
             </ul>
             { 
                 props.meaning.definitions[0].example && 
-                <small className="example px-2 text-secondary">e.g. { props.meaning.definitions[0].example }</small> 
+                <small className="example px-2 text-secondary d-block">e.g. { props.meaning.definitions[0].example }</small> 
             } 
 
             {
                 (props.meaning.synonyms.length > 1) &&
-                <small className="synonym px-2 mt-4 d-block"> 
-                    <span className="fw-bold">Similar Word:</span> { props.meaning.synonyms.map(synonym => (` [${synonym}] `)) }
+                <small className="synonym px-2 mt-3 d-block border py-1"> 
+                    <span className="fw-bold d-block mb-2">Similar Word </span> { props.meaning.synonyms.map(synonym => (
+                        <span className="badge mb-1">{synonym}</span>)) }
                 </small>
             }
         </div>
