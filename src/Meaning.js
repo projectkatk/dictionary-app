@@ -6,7 +6,8 @@ export default function Meaning(props) {
     console.log(props.meaning)
     return (
         <div className="col-12 col-md-6 p-4 Meaning">
-            <h2 className="px-2 d-inline-block fw-bolder" >{props.data.word}</h2>
+            <h2 className="px-2 fw-bolder d-inline-block" >{props.data.word}</h2>
+            <div className="d-inline-block mb-3">
             { props.data.phonetics.length > 0 && 
                 props.data.phonetics.map((phonetic, index) => (
                 <Phonetic 
@@ -15,6 +16,7 @@ export default function Meaning(props) {
                 />
                 ))
             }
+            </div>
             
             <span className="d-block wordType mt-2 text-left px-2 fw-bold text-secondary">
                 { props.meaning.partOfSpeech }

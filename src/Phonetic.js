@@ -12,11 +12,11 @@ export default function Phonetic(props) {
     }
    
     return (
-        <span className="d-inline-block px-3 Phonetic">               
+        <span className="px-2 Phonetic">               
                 {
                     (props.phonetics.audio && props.phonetics.text) ? 
                     ( 
-                        <span className="mx-lg-2 "> 
+                        <span className="mx-lg-2"> 
                         {playSound()}                                         
                         {props.phonetics.text}
                         </span> 
