@@ -5,7 +5,6 @@ import axios from "axios"
 
 
 export default function Dictionary () {
-
     const [keyword, setKeyword] = useState("");
     const [wordData, setWordData] = useState({ready: false})
     const [loaded, setLoaded] = useState(false);
@@ -21,6 +20,8 @@ export default function Dictionary () {
 
     function handleResponse(response) {
         const data = response.data[0];
+        console.log(data)
+
         setWordData(data);        
         setLoaded(true);         
     }
@@ -57,7 +58,8 @@ export default function Dictionary () {
                 loaded && 
                 <Results 
                 keyword={keyword}
-                data={wordData}                    
+                data={wordData}
+                key={1}                    
                 />    
             }       
         </div>

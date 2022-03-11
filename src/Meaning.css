@@ -4,10 +4,6 @@
 }
 
 
-.Meaning .phonetic {
-    font-style:italic;
-}
-
 .Meaning .wordType {
     min-width: 100px;
     width: 150px;

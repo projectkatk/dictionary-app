@@ -1,0 +1,8 @@
+.Phonetic {
+    font-style:italic;
+    font-size: 0.9rem;
+}
+
+.Phonetic .phoneticStyle {
+    cursor: pointer;
+}
